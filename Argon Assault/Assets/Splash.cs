@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Splash : MonoBehaviour
@@ -9,16 +7,16 @@ public class Splash : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        DismissSplash();
+        StartGame();
     }
 
-    void DismissSplash()
+    void StartGame()
     {
         if (Input.anyKeyDown)
         {
