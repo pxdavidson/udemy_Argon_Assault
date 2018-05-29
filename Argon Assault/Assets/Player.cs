@@ -12,11 +12,10 @@ public class Player : MonoBehaviour
     [SerializeField] float screenSizeX = 9;
     [SerializeField] float screenSizeY = 5;
 
-    [SerializeField] float rotationPitchFactor = 2;
-    [SerializeField] float throwPitchFactor = 10;
+    [SerializeField] float positionalRotationFactorPitch = -2f;
+    [SerializeField] float positionalRotationFactorYaw = 2f;
 
-    [SerializeField] float rotationYawFactor = -2;
-    [SerializeField] float throwYawFactor = 10;
+    [SerializeField] float throwRotationFactor = -15f;
 
     float xRawThrow;
     float yRawThrow;
@@ -35,19 +34,18 @@ public class Player : MonoBehaviour
         RotateShip();
     }
 
+    // Rotates the ship based on screen position and input (via Throw)
     private void RotateShip()
     {
-        float xThrow = xRawThrow * throwPitchFactor;
-        float yThrow = yRawThrow * throwYawFactor;
+        float pitchThrow = yRawThrow * throwRotationFactor;
+        float pitchRotation = transform.localPosition.y * positionalRotationFactorPitch;
 
-        float rawPitch = -transform.localPosition.y * rotationPitchFactor;
-        float rawYaw = transform.localPosition.x * rotationYawFactor;
+        float rollThrow = xRawThrow * throwRotationFactor;
+        float yawRotation = transform.localPosition.x * positionalRotationFactorYaw;
 
-        float pitch = rawPitch + yThrow;
-        float yaw = rawYaw + xThrow;
-        float roll = 0f;
-
-
+        float pitch = pitchRotation + pitchThrow;
+        float yaw = yawRotation;
+        float roll = rollThrow;
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
