@@ -25,9 +25,21 @@ public class Player : MonoBehaviour
     {
 		
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Detect collision
+    void OnCollisionEnter(Collision collision)
+    {
+        print("COLLISION");
+    }
+
+    // Detect triggers
+    void OnTriggerEnter(Collider collider)
+    {
+        print("TRIGGER");
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         MoveShipX();
         MoveShipY();

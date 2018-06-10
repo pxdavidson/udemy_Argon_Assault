@@ -291,6 +291,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4209365667924142}
+  - component: {fileID: 65563125556304118}
   m_Layer: 0
   m_Name: StarSparrowModular3
   m_TagString: Untagged
@@ -378,7 +379,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893786199030626}
   m_LocalRotation: {x: 0, y: -0.12619898, z: 0, w: 0.992005}
-  m_LocalPosition: {x: 0.18586579, y: 0.076135255, z: -10.026123}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4474211137152000}
@@ -1353,3 +1354,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627516642272392}
   m_Mesh: {fileID: 4300116, guid: 99a646733e69a954c94a187e15cf30f9, type: 3}
+--- !u!65 &65563125556304118
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893786199030626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.47, y: 0.67, z: 3.2}
+  m_Center: {x: 0, y: 0.06, z: 0.45}
