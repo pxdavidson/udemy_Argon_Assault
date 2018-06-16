@@ -3,22 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     // Variables
-    [Tooltip("ms^-1")][SerializeField] float speed = 10f;
+    [Header("General")]
+    [Tooltip("ms^-1")][SerializeField] float controlSpeed = 10f;
     [SerializeField] float screenSizeX = 9;
     [SerializeField] float screenSizeY = 5;
+    [SerializeField] float levelLoadDelay = 2f;
 
+    [Header("Player Position")]
     [SerializeField] float positionalRotationFactorPitch = -2f;
     [SerializeField] float positionalRotationFactorYaw = 2f;
 
+    [Header("Player Rotation")]
     [SerializeField] float throwRotationFactor = -15f;
+
+    [Header("VFX")]
+    [SerializeField] GameObject deathFX;
 
     float xRawThrow;
     float yRawThrow;
+
+    // States
+    bool Dead = false;
 
     // Use this for initialization
     void Start ()
@@ -26,24 +37,15 @@ public class Player : MonoBehaviour
 		
 	}
 
-    // Detect collision
-    void OnCollisionEnter(Collision collision)
-    {
-        print("COLLISION");
-    }
-
-    // Detect triggers
-    void OnTriggerEnter(Collider collider)
-    {
-        print("TRIGGER");
-    }
-
     // Update is called once per frame
     void Update ()
     {
-        MoveShipX();
-        MoveShipY();
-        RotateShip();
+        if (Dead == false)
+            {
+            MoveShipX();
+            MoveShipY();
+            RotateShip();
+            }
     }
 
     // Rotates the ship based on screen position and input (via Throw)
@@ -66,7 +68,7 @@ public class Player : MonoBehaviour
     private void MoveShipX()
     {
         xRawThrow = CrossPlatformInputManager.GetAxis("Horizontal");
-        float xOffset = xRawThrow * speed * Time.deltaTime;
+        float xOffset = xRawThrow * controlSpeed * Time.deltaTime;
         float xRawPos = transform.localPosition.x + xOffset;
         float xClampedPos = Mathf.Clamp(xRawPos, -screenSizeX, screenSizeX);
 
@@ -77,10 +79,24 @@ public class Player : MonoBehaviour
     private void MoveShipY()
     {
         yRawThrow = CrossPlatformInputManager.GetAxis("Vertical");
-        float yOffset = yRawThrow * speed * Time.deltaTime;
+        float yOffset = yRawThrow * controlSpeed * Time.deltaTime;
         float yRawPos = transform.localPosition.y + yOffset;
         float yClampedPos = Mathf.Clamp(yRawPos, -screenSizeY, screenSizeY);
 
         transform.localPosition = new Vector3(transform.localPosition.x, yClampedPos, transform.localPosition.z);
+    }
+    
+    // Player is dead
+    void PlayerDead()
+    {
+        Dead = true;
+        deathFX.SetActive(true);
+        Invoke("LoadStartOfLevel", levelLoadDelay);
+    }
+
+    // Load Level. NOTE: Held in string in PlayedDead()
+    void LoadStartOfLevel()
+    {
+        SceneManager.LoadScene(1);
     }
 }
