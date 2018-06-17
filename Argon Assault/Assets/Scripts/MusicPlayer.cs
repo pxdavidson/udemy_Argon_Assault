@@ -9,11 +9,11 @@ public class MusicPlayer : MonoBehaviour
         int numberOfMusicPlayers = FindObjectsOfType<MusicPlayer>().Length;
         if (numberOfMusicPlayers > 1)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else
         {
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
     }
 }

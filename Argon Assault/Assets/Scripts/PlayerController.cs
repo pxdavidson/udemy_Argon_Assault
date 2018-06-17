@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [Header("VFX")]
     [SerializeField] GameObject deathFX;
 
+    // These are set from MoveshipX() and MoveshipY()
     float xRawThrow;
     float yRawThrow;
 
