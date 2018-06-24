@@ -8,9 +8,12 @@ public class EnemyShepherd : MonoBehaviour
     [SerializeField] GameObject deathFX;
     [SerializeField] Transform parent;
 
+    ScoreBoard scoreBoard;
+
     // Use this for initialization
     void Start ()
     {
+        scoreBoard = FindObjectOfType<ScoreBoard>();
         CreateNonTriggerBoxCollider();
     }
 
@@ -23,6 +26,7 @@ public class EnemyShepherd : MonoBehaviour
     // Detect particle collisions
     void OnParticleCollision(GameObject other)
     {
+        scoreBoard.ScoreHit();
         GameObject fx = Instantiate(deathFX, transform.position, Quaternion.identity);
         fx.transform.parent = parent;
         Destroy(gameObject);
