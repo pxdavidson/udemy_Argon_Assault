@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
     }
     
     // Player is dead
-    void PlayerDead()
+    public void PlayerDead()
     {
         Dead = true;
         deathFX.SetActive(true);

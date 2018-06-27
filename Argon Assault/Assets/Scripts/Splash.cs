@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 public class Splash : MonoBehaviour
 {
 
+    LevelLoader levelLoader;
+
     // Use this for initialization
     void Start()
     {
-
+        levelLoader = FindObjectOfType<LevelLoader>();
     }
 
     // Update is called once per frame
@@ -20,7 +22,7 @@ public class Splash : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SceneManager.LoadScene(1);
+            levelLoader.LoadFirstLevel();
         }
     }
 }

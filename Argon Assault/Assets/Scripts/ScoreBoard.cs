@@ -15,13 +15,18 @@ public class ScoreBoard : MonoBehaviour
     void Start()
     {
         scoreText = GetComponent<Text>();
+        ScoreUpdate();
+    }
+
+    private void ScoreUpdate()
+    {
         scoreText.text = score.ToString();
     }
 
     public void ScoreHit()
     {
         score = score + scorePerHit;
-        scoreText.text = score.ToString();
+        ScoreUpdate();
     }
 
 }
