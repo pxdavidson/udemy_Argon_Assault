@@ -7,6 +7,7 @@ public class EnemyShepherd : MonoBehaviour
     // Variables
     [SerializeField] GameObject deathFX;
     [SerializeField] Transform parent;
+    [SerializeField] int pointsValue = 10;
 
     ScoreBoard scoreBoard;
 
@@ -24,9 +25,9 @@ public class EnemyShepherd : MonoBehaviour
     }
 
     // Detect particle collisions
-    void OnParticleCollision(GameObject other)
+    public void OnParticleCollision(GameObject other)
     {
-        scoreBoard.ScoreHit();
+        scoreBoard.ScoreHit(pointsValue);
         GameObject fx = Instantiate(deathFX, transform.position, Quaternion.identity);
         fx.transform.parent = parent;
         Destroy(gameObject);
