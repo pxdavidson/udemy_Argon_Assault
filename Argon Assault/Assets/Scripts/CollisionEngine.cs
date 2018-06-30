@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class CollisionEngine : MonoBehaviour
 {
+    PlayerController playerController;
+
+    private void Start()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+    }
 
     // Detect triggers
     void OnTriggerEnter(Collider collider)
     {
-        SendMessage("PlayerDead");
+        playerController.PlayerDead();
     }
 }

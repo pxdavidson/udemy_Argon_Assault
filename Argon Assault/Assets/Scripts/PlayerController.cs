@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float screenSizeX = 9;
     [SerializeField] float screenSizeY = 5;
     [SerializeField] float levelLoadDelay = 2f;
+    [SerializeField] GameObject[] guns;
 
     [Header("Player Position")]
     [SerializeField] float positionalRotationFactorPitch = -2f;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
             MoveShipX();
             MoveShipY();
             RotateShip();
+            FireWeapons();
             }
     }
 
@@ -99,5 +101,36 @@ public class PlayerController : MonoBehaviour
     void LoadStartOfLevel()
     {
         SceneManager.LoadScene(1);
+    }
+
+    // Turn particle effects on and off
+    private void FireWeapons()
+    {
+        if (CrossPlatformInputManager.GetButton("Fire1"))
+        {
+            ActivateGuns();
+        }
+        else
+        {
+            DeactivateGuns();
+        }
+    }
+
+    // Make the particle effects for weapons set to active
+    private void ActivateGuns()
+    {
+        foreach (GameObject gun in guns)
+        {
+            gun.SetActive(true);
+        }
+    }
+
+    // Make the particle effects for weapons set to inactive
+    private void DeactivateGuns()
+    {
+        foreach (GameObject gun in guns)
+        {
+            gun.SetActive(false);
+        }
     }
 }
