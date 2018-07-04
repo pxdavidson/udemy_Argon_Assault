@@ -38,10 +38,10 @@ public class EnemyShepherd : MonoBehaviour
     public void OnParticleCollision(GameObject other)
     {
         currentHP--;
-        print(currentHP);
         if (currentHP <= 0)
         {
             KillEnemy();
+            IncreaseScore();
         }
         else
         {
@@ -50,11 +50,18 @@ public class EnemyShepherd : MonoBehaviour
         
     }
 
+    // Play death FX and destroy gameobject
     private void KillEnemy()
     {
-        scoreBoard.ScoreHit(pointsValue);
         GameObject fx = Instantiate(deathFX, transform.position, Quaternion.identity);
         fx.transform.parent = parent;
         Destroy(gameObject);
+    }
+
+    // Send message to increase the score to the scoreboard
+    private void IncreaseScore()
+    {
+        scoreBoard.ScoreHit(pointsValue);
+        print("score increase");
     }
 }

@@ -5555,7 +5555,7 @@ GameObject:
   - component: {fileID: 740567487}
   - component: {fileID: 740567488}
   m_Layer: 0
-  m_Name: Enemy (1)
+  m_Name: Enemy (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5573,7 +5573,7 @@ Transform:
   m_Children:
   - {fileID: 613418960}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 71.63, z: 0}
 --- !u!114 &740567488
 MonoBehaviour:
@@ -5588,7 +5588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 1482244277460100, guid: 2388ba0fb433a604c8cc9597971cf8df, type: 2}
   parent: {fileID: 0}
-  pointsValue: 3780
+  pointsValue: 50
   maxHP: 5
 --- !u!1 &796851590
 GameObject:
@@ -5600,7 +5600,7 @@ GameObject:
   - component: {fileID: 796851591}
   - component: {fileID: 796851592}
   m_Layer: 0
-  m_Name: Enemy (5)
+  m_Name: Enemy (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5633,7 +5633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 1482244277460100, guid: 2388ba0fb433a604c8cc9597971cf8df, type: 2}
   parent: {fileID: 0}
-  pointsValue: 3780
+  pointsValue: 50
   maxHP: 5
 --- !u!1 &807223679
 GameObject:
@@ -10630,8 +10630,10 @@ GameObject:
   m_Component:
   - component: {fileID: 914408551}
   - component: {fileID: 914408552}
+  - component: {fileID: 914408554}
+  - component: {fileID: 914408553}
   m_Layer: 0
-  m_Name: Enemy (2)
+  m_Name: Enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10644,13 +10646,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 914408550}
   m_LocalRotation: {x: 0, y: 0.53788835, z: 0, w: 0.84301615}
-  m_LocalPosition: {x: 92.72491, y: 21.635643, z: 539.2215}
+  m_LocalPosition: {x: 245.2, y: 96.9, z: 586.3}
   m_LocalScale: {x: 15.999996, y: 4.9999995, z: 19.999996}
   m_Children:
   - {fileID: 472546365}
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 65.08, z: 0}
+  m_LocalEulerAnglesHint: {x: 359.3961, y: 0.000004009346, z: -0.00000002729473}
 --- !u!114 &914408552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10664,8 +10666,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 1482244277460100, guid: 2388ba0fb433a604c8cc9597971cf8df, type: 2}
   parent: {fileID: 0}
-  pointsValue: 3780
+  pointsValue: 50
   maxHP: 5
+--- !u!95 &914408553
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 914408550}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!320 &914408554
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 914408550}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: f57b916cf268bff4fbe1e8d38ba6159e, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 114486196523773216, guid: f57b916cf268bff4fbe1e8d38ba6159e, type: 2}
+    value: {fileID: 914408550}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &1043660737
 Prefab:
   m_ObjectHideFlags: 0
@@ -10865,7 +10903,7 @@ GameObject:
   - component: {fileID: 1202515336}
   - component: {fileID: 1202515337}
   m_Layer: 0
-  m_Name: Enemy (0)
+  m_Name: Enemy (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10883,7 +10921,7 @@ Transform:
   m_Children:
   - {fileID: 639293601}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: -88.82, z: 0}
 --- !u!114 &1202515337
 MonoBehaviour:
@@ -10898,7 +10936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 1482244277460100, guid: 2388ba0fb433a604c8cc9597971cf8df, type: 2}
   parent: {fileID: 0}
-  pointsValue: 3780
+  pointsValue: 50
   maxHP: 5
 --- !u!1 &1229461789
 GameObject:
@@ -15861,7 +15899,7 @@ GameObject:
   - component: {fileID: 1645087841}
   - component: {fileID: 1645087840}
   m_Layer: 0
-  m_Name: Enemy (6)
+  m_Name: Enemy (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15880,7 +15918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 1482244277460100, guid: 2388ba0fb433a604c8cc9597971cf8df, type: 2}
   parent: {fileID: 0}
-  pointsValue: 3780
+  pointsValue: 50
   maxHP: 5
 --- !u!4 &1645087841
 Transform:
@@ -15894,7 +15932,7 @@ Transform:
   m_Children:
   - {fileID: 645805631}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: -148.414, z: 0}
 --- !u!1 &1740572408
 GameObject:
@@ -15906,7 +15944,7 @@ GameObject:
   - component: {fileID: 1740572409}
   - component: {fileID: 1740572410}
   m_Layer: 0
-  m_Name: Enemy (4)
+  m_Name: Enemy (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15924,7 +15962,7 @@ Transform:
   m_Children:
   - {fileID: 1827314973}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 275.89, z: 0}
 --- !u!114 &1740572410
 MonoBehaviour:
@@ -15939,7 +15977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 1482244277460100, guid: 2388ba0fb433a604c8cc9597971cf8df, type: 2}
   parent: {fileID: 0}
-  pointsValue: 3780
+  pointsValue: 50
   maxHP: 5
 --- !u!1 &1752370735
 GameObject:
@@ -16196,7 +16234,7 @@ GameObject:
   - component: {fileID: 1857614225}
   - component: {fileID: 1857614226}
   m_Layer: 0
-  m_Name: Enemy (3)
+  m_Name: Enemy (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16214,7 +16252,7 @@ Transform:
   m_Children:
   - {fileID: 1237109851}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 64.61, z: 0}
 --- !u!114 &1857614226
 MonoBehaviour:
@@ -16229,7 +16267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 1482244277460100, guid: 2388ba0fb433a604c8cc9597971cf8df, type: 2}
   parent: {fileID: 0}
-  pointsValue: 3780
+  pointsValue: 50
   maxHP: 5
 --- !u!1 &1857736243
 GameObject:
